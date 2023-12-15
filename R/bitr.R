@@ -45,6 +45,9 @@ bitr <- function(geneID, fromType, toType, OrgDb, drop=TRUE) {
                                    keytype = fromType,
                                    columns=c(fromType, toType)))
 
+    if("GENENAME" %in% toType){
+        res$gn_CN=en2cn(res$GENENAME)
+        }
     ii <- which(is.na(res[,2]))
     if (length(ii)) {
         n <- res[ii, 1] %>% unique %>% length
