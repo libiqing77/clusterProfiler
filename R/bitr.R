@@ -46,7 +46,7 @@ bitr <- function(geneID, fromType, toType, OrgDb, drop=TRUE) {
                                    columns=c(fromType, toType)))
 
     if("GENENAME" %in% toType){
-        res$gn_CN=en2cn(res$GENENAME)
+        res$gn_CN=yulab.utils::en2cn(res$GENENAME)
         }
     ii <- which(is.na(res[,2]))
     if (length(ii)) {
